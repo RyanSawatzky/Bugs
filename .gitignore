@@ -1,5 +1,8 @@
 *.class
 
+# NetBeans directories
+build/**
+dist/**
 nbproject/**
 
 # Mobile Tools for Java (J2ME)
