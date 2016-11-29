@@ -1,5 +1,6 @@
 package bugs.map;
 
+import bugs.bugs.Bug;
 import bugs.main.DrawInfo;
 
 public interface Map
@@ -10,5 +11,6 @@ public interface Map
    public int boundY(int y);
    public int eatFoodAt(int x, int y);
    public void growFood(long foodToGrow);
+   public void bugDied(Bug bug);
    public void drawFood(DrawInfo d);
 }

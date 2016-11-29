@@ -1,5 +1,6 @@
 package bugs.map;
 
+import bugs.bugs.Bug;
 import bugs.main.DrawInfo;
 import bugs.main.Game;
 import bugs.util.BugsColor;
@@ -8,11 +9,11 @@ import java.util.Random;
 
 public class MapNormal implements Map
 {
-   private final Random rand;
-   private final BugsColor foodColor;
-   private final int width;
-   private final int height;
-   private final boolean food[][];
+   protected final Random rand;
+   protected final BugsColor foodColor;
+   protected final int width;
+   protected final int height;
+   protected final boolean food[][];
 
    public MapNormal(int width, int height)
    {
@@ -76,6 +77,22 @@ public class MapNormal implements Map
          int y = rand.nextInt(height);
          food[y][x] = true;
       }
+   }
+
+   @Override
+   public void bugDied(Bug bug)
+   {
+//      for(int r = 0; r < 3; r++)
+//      {
+//         for(int c = 0; c < 3; c++)
+//         {
+//            int y = r + bug.y;
+//            int x = c + bug.x;
+//            
+//            if(y >= 0 && y < height && x >= 0 && x < width)
+//               food[y][x] = true;
+//         }
+//      }
    }
 
    @Override

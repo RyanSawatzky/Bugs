@@ -29,6 +29,7 @@ public class Bug
    public int direction;
    public BugsColor color;
    public int turns[];
+   public int splitEnergy;
 
    public Bug()
    {

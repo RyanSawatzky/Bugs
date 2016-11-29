@@ -148,8 +148,11 @@ public class BugsNormal implements Bugs
 
          bug.energy -= Game.BugEnergyPerTurn;
          if(bug.energy <= 0)
+         {
             deadBugs.add(bug);
-         else if(bug.energy >= Game.BugBreedPoint)
+            map.bugDied(bug);
+         }
+         else if(bug.energy >= bug.splitEnergy)
             newBugs.add(createNewBug(map, bug));
       }
 
@@ -208,6 +211,7 @@ public class BugsNormal implements Bugs
          newBug.y = rand.nextInt(map.getHeight());
          newBug.direction = rand.nextInt(8);
          newBug.color = BugsColor.fromHsl(new HSL(newBugHue(), 255, 150));
+         newBug.splitEnergy = Game.BugBreedPoint;
 
          for(int i = 0; i < 7; i++)
             newBug.turns[i] = 12;
@@ -220,6 +224,7 @@ public class BugsNormal implements Bugs
          newBug.x = parent.x;
          newBug.y = parent.y;
          newBug.direction = rand.nextInt(8);
+         newBug.splitEnergy = parent.splitEnergy;// + (rand.nextInt(100) - 50);
 
          boolean freak = false;
          newBug.color = BugsColor.fromHsl(new HSL(newBugHue(parent.color.toHslColor().getHue(), freak), 255, 150));

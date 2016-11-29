@@ -3,7 +3,7 @@ package bugs.main;
 import bugs.bugs.Bugs;
 import bugs.bugs.BugsNormal;
 import bugs.map.Map;
-import bugs.map.MapNormal;
+import bugs.map.MapBorder;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -22,14 +22,14 @@ public class Game
 {
 //   public static final int MapWidth = 1024;
 //   public static final int MapWidth = 1480;
-   public static final int MapWidth = 1800;
-   public static final int MapHeight = 950;
+   public static final int MapWidth = 3100;
+   public static final int MapHeight = 1150;
 
-   public static final int BugTurnMutation = 2;
-   public static final double InitialFood = 0.09536d;
-   public static final double FoodPerTurn = 0.00005722d;
+   public static final int BugTurnMutation = 1;
+   public static final double InitialFood = 0.15d;
+   public static final double FoodPerTurn = 0.00006d;
 
-   public static final int InitialBugs = 100;
+   public static final int InitialBugs = 25;
    public static final int InitialBugEnergy = 1000;
    public static final int BugEnergyPerTurn = 10;
    public static final int EnergyInFood = 100;
@@ -51,7 +51,7 @@ public class Game
       super.setDoubleBuffered(true);
       
       inputQueue = new ConcurrentLinkedQueue<>();
-      map = new MapNormal(MapWidth, MapHeight);
+      map = new MapBorder(MapWidth, MapHeight);
       map.growFood(Math.round(InitialFood * MapWidth * MapHeight));
       bugs = new BugsNormal();
       bugs.setInitialBugs(map, InitialBugs);
