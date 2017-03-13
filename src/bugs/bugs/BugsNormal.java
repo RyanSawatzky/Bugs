@@ -182,7 +182,7 @@ public class BugsNormal implements Bugs
    {
       int change = 0;
       if(freak == true)
-         change = 100;
+         change = rand.nextBoolean() ? 50 : -50;
       else
          change = rand.nextInt(3) - 1;
 
@@ -226,7 +226,7 @@ public class BugsNormal implements Bugs
          newBug.direction = rand.nextInt(8);
          newBug.splitEnergy = parent.splitEnergy;// + (rand.nextInt(100) - 50);
 
-         boolean freak = false;
+         boolean freak = (rand.nextInt(100) == 0);
          newBug.color = BugsColor.fromHsl(new HSL(newBugHue(parent.color.toHslColor().getHue(), freak), 255, 150));
 
          for(int i = 0; i < 8; i++)
@@ -235,7 +235,7 @@ public class BugsNormal implements Bugs
          int turnFrom = rand.nextInt(8);
          int turnTo = rand.nextInt(8);
          
-         int amount = freak ? 100 : Game.BugTurnMutation;
+         int amount = freak ? 33 : Game.BugTurnMutation;
          if(newBug.turns[turnFrom] - amount < 0)
             amount = 0 - newBug.turns[turnFrom];
          if(newBug.turns[turnTo] + amount > 100)
